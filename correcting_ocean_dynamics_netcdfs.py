@@ -174,7 +174,7 @@ if __name__ == "__main__":
             datadf_nonan['diff'] = datadf_nonan['rsl_predicted'] - datadf_nonan['rsl']
             MAE = datadf_nonan['diff'].abs().mean()
             SSR = (datadf_nonan['diff']**2).sum()
-            SST = ((datadf_nonan['rsl_predicted'] - datadf_nonan['rsl_predicted'])**2).sum()
+            SST = ((datadf_nonan['rsl'] - datadf_nonan['rsl'].mean())**2).sum()
             RMSE = np.sqrt((datadf_nonan['diff']**2).mean())
             ME = datadf_nonan['diff'].median()
             RSQ = 1 - SSR/SST
